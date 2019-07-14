@@ -4,6 +4,10 @@
  */
 
 import React, { Fragment } from 'react';
+import { Provider } from 'react-redux';
+import createStore from './redux/create';
+import combineReducers from './reducers';
+
 import {
   SafeAreaView,
   StyleSheet,
@@ -21,9 +25,11 @@ import {
   ReloadInstructions
 } from 'react-native/Libraries/NewAppScreen';
 
+const store = createStore(combineReducers);
+
 const App = () => {
   return (
-    <Fragment>
+    <Provider store={store}>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -66,35 +72,35 @@ const App = () => {
           </View>
         </ScrollView>
       </SafeAreaView>
-    </Fragment>
+    </Provider>
   );
 };
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: Colors.lighter
   },
   engine: {
     position: 'absolute',
     right: 0
   },
   body: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.white
   },
   sectionContainer: {
     marginTop: 32,
-    paddingHorizontal: 24,
+    paddingHorizontal: 24
   },
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
-    color: Colors.black,
+    color: Colors.black
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: Colors.dark,
+    color: Colors.dark
   },
   highlight: {
     fontWeight: '700'
@@ -106,7 +112,7 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right'
-  },
+  }
 });
 
 export default App;
