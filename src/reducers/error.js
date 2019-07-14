@@ -1,7 +1,6 @@
 /**
  * Created by radughitescu on 2019-07-14
  */
-// import {SEND_EMAIL} from './../constants';
 
 const initialState = {};
 
